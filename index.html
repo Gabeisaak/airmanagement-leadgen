@@ -12,14 +12,15 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --paper: #efe9dd;
-      --paper-2: #e6dfd0;
-      --ink: #0d0d0d;
-      --ink-soft: #2a2a2a;
-      --rust: #d2451e;
-      --rust-deep: #a82d12;
-      --safety: #ffb627;
-      --green: #1d6f1d;
+      /* Air Management brand palette: navy + orange */
+      --paper: #ffffff;
+      --paper-2: #eff6ff;
+      --ink: #0f2460;
+      --ink-soft: #1e3a8a;
+      --rust: #f97316;       /* primary orange accent */
+      --rust-deep: #ea580c;  /* deeper orange */
+      --safety: #fdba74;     /* light orange (on dark bg) */
+      --green: #16a34a;
     }
 
     html { scroll-behavior: smooth; }
@@ -85,20 +86,34 @@
       align-items: center;
       gap: 24px;
     }
-    .brand { display: flex; align-items: baseline; gap: 12px; }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .brand-icon {
+      width: 46px; height: 46px;
+      background: linear-gradient(135deg, var(--ink) 0%, var(--ink-soft) 100%);
+      border-radius: 11px;
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      box-shadow: 0 2px 0 rgba(15,36,96,0.35);
+    }
+    .brand-stack { display: flex; flex-direction: column; line-height: 1.05; }
     .brand-mark {
       font-family: 'Instrument Serif', serif;
-      font-size: 1.85rem;
+      font-size: 1.6rem;
+      font-weight: 400;
       letter-spacing: -0.02em;
       line-height: 1;
+      display: block;
     }
     .brand-mark em { font-style: italic; color: var(--rust); }
     .brand-tag {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
-      opacity: 0.55;
+      letter-spacing: 0.18em;
+      opacity: 0.6;
+      margin-top: 4px;
     }
     .header-cta { display: flex; align-items: center; gap: 18px; }
     .header-status {
@@ -661,12 +676,23 @@
       gap: 48px;
       margin-bottom: 56px;
     }
-    .footer-brand .display {
-      font-size: 3.2rem;
-      line-height: 1;
+    .footer-brand-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
       margin-bottom: 16px;
     }
+    .footer-brand .display {
+      font-size: 2.6rem;
+      line-height: 1;
+    }
     .footer-brand .display em { font-style: italic; color: var(--rust); }
+    .footer-brand .brand-icon {
+      width: 50px; height: 50px;
+      background: linear-gradient(135deg, var(--rust) 0%, var(--rust-deep) 100%);
+      box-shadow: 0 2px 0 rgba(168,45,18,0.45);
+      font-size: 1.5rem;
+    }
     .footer-brand p {
       max-width: 360px;
       opacity: 0.7;
@@ -766,10 +792,13 @@
   <!-- HEADER -->
   <header>
     <div class="wrap header-inner">
-      <div class="brand">
-        <div class="brand-mark">Air Management<em>.</em></div>
-        <div class="brand-tag">est. Sacramento</div>
-      </div>
+      <a class="brand" href="#" aria-label="Air Management Heating and Cooling">
+        <div class="brand-icon" aria-hidden="true">❄</div>
+        <div class="brand-stack">
+          <strong class="brand-mark">Air Management<em>.</em></strong>
+          <span class="brand-tag">Heating &amp; Cooling</span>
+        </div>
+      </a>
       <div class="header-cta">
         <div class="header-status"><div class="pulse"></div> Now answering calls</div>
         <a href="tel:9163008139" class="btn-call">(916) 300-8139</a>
@@ -1025,7 +1054,10 @@
     <div class="wrap">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="display">Air Management<em>.</em></div>
+          <div class="footer-brand-row">
+            <div class="brand-icon" aria-hidden="true">❄</div>
+            <div class="display">Air Management<em>.</em></div>
+          </div>
           <p>Family-owned HVAC for Sacramento homes and small businesses. Two trucks, no sales department, twenty-plus years on the same problems.</p>
         </div>
         <div class="footer-col">
