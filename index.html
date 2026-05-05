@@ -187,10 +187,11 @@
     .hero-eyebrow .dot { width: 6px; height: 6px; background: var(--rust); border-radius: 50%; }
     .hero h1 {
       font-family: 'Instrument Serif', serif;
-      font-size: clamp(3.2rem, 8.4vw, 8.4rem);
-      line-height: 0.92;
+      font-size: clamp(2.4rem, 8.4vw, 8.4rem);
+      line-height: 0.95;
       letter-spacing: -0.04em;
       margin-bottom: 32px;
+      word-break: break-word;
     }
     .hero h1 em { font-style: italic; color: var(--rust); }
     .hero h1 .crossed {
@@ -750,17 +751,45 @@
       .pullquote::before { font-size: 18rem; top: -50px; }
     }
     @media (max-width: 600px) {
-      .wrap { padding: 0 20px; }
-      .form-card { transform: none; box-shadow: 5px 5px 0 var(--ink); padding: 32px 22px 26px; }
+      .wrap { padding: 0 18px; }
+      .marquee-track { font-size: 0.7rem; gap: 36px; letter-spacing: 0.14em; }
+      header { padding: 14px 0; }
       .header-status { display: none; }
       .brand-tag { display: none; }
-      .final-cta::before { font-size: 3.2rem; }
-      .service-row { grid-template-columns: 50px 1fr 50px; gap: 14px; padding: 22px 0; }
-      .service-name { font-size: 1.25rem; line-height: 1.1; }
-      .service-arrow { font-size: 1.2rem; }
-      .hero-meta { gap: 28px; padding: 18px 0; }
-      .hero-meta-item strong { font-size: 1.5rem; }
-      .stat strong { font-size: 2.4rem; }
+      .brand-icon { width: 38px; height: 38px; font-size: 1.15rem; border-radius: 9px; }
+      .brand-mark { font-size: 1.25rem; }
+      .header-cta { gap: 0; }
+      .btn-call { padding: 9px 14px; font-size: 0.8rem; }
+      .hero { padding: 44px 0 60px; }
+      .hero-eyebrow { font-size: 0.66rem; padding: 5px 12px; margin-bottom: 22px; }
+      .hero h1 { margin-bottom: 22px; }
+      .hero-lede { font-size: 1rem; margin-bottom: 28px; }
+      .hero-meta { gap: 22px; padding: 16px 0; }
+      .hero-meta-item strong { font-size: 1.4rem; }
+      .form-card { transform: none; box-shadow: 5px 5px 0 var(--ink); padding: 32px 22px 26px; }
+      .form-card-header h2 { font-size: 1.7rem; }
+      .stats-strip { padding: 40px 0; }
+      .stat { padding: 22px 18px; }
+      .stat strong { font-size: 2.2rem; }
+      .section { padding: 64px 0; }
+      .section-head { margin-bottom: 38px; gap: 14px; }
+      .service-row { grid-template-columns: 48px 1fr 36px; gap: 14px; padding: 22px 0; }
+      .service-num { font-size: 0.7rem; }
+      .service-name { font-size: 1.2rem; line-height: 1.15; }
+      .service-arrow { font-size: 1.1rem; }
+      .why-text p { font-size: 1.1rem; }
+      .why-text p .display-em { font-size: 1.25rem; }
+      .why-item { grid-template-columns: 36px 1fr; gap: 12px; padding: 18px 0; }
+      .why-item h4 { font-size: 1.25rem; }
+      .final-cta { padding: 70px 0 56px; }
+      .final-cta h2 { margin-bottom: 14px; }
+      .final-cta::before { font-size: 2.6rem; bottom: 18px; }
+      .btn-paper { padding: 18px 22px; font-size: 0.98rem; }
+      .btn-paper-mini { padding: 14px 20px; font-size: 0.78rem; }
+      footer { padding: 48px 0 24px; }
+      .footer-brand .display { font-size: 2rem; }
+      .footer-brand .brand-icon { width: 42px; height: 42px; font-size: 1.3rem; }
+      .footer-bottom { font-size: 0.62rem; }
     }
   </style>
 </head>
@@ -772,18 +801,18 @@
       <span><span class="dot"></span> 24/7 Emergency Service</span>
       <span>Sacramento + Surrounding</span>
       <span><span class="dot"></span> No Heat? No Cool? Call Now</span>
-      <span>Licensed · Bonded · Insured</span>
+      <span>Licensed &amp; Insured</span>
       <span><span class="dot"></span> 5,000+ Jobs Completed</span>
-      <span>Family-Owned Since 2005</span>
+      <span>Family-Owned &amp; Operated</span>
       <span><span class="dot"></span> Free Estimates · Always</span>
       <span>Same-Day Service Available</span>
       <!-- duplicate set for seamless loop -->
       <span><span class="dot"></span> 24/7 Emergency Service</span>
       <span>Sacramento + Surrounding</span>
       <span><span class="dot"></span> No Heat? No Cool? Call Now</span>
-      <span>Licensed · Bonded · Insured</span>
+      <span>Licensed &amp; Insured</span>
       <span><span class="dot"></span> 5,000+ Jobs Completed</span>
-      <span>Family-Owned Since 2005</span>
+      <span>Family-Owned &amp; Operated</span>
       <span><span class="dot"></span> Free Estimates · Always</span>
       <span>Same-Day Service Available</span>
     </div>
@@ -810,13 +839,13 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <div class="hero-eyebrow"><span class="dot"></span> Sacramento HVAC · Since 2005</div>
+        <div class="hero-eyebrow"><span class="dot"></span> Sacramento HVAC · Family-Owned</div>
         <h1>When it <span class="crossed">breaks</span> <em>quits on you</em>, we make it work.</h1>
         <p class="hero-lede">No "service window" excuses. No upsell theater. We diagnose what's wrong, tell you what it costs, fix it the same day if we can — and stand behind every job we leave.</p>
         <div class="hero-meta">
-          <div class="hero-meta-item"><strong>1 hr</strong><span>typical response</span></div>
-          <div class="hero-meta-item"><strong>20+ yrs</strong><span>local experience</span></div>
-          <div class="hero-meta-item"><strong>4.9 / 5</strong><span>Google reviews</span></div>
+          <div class="hero-meta-item"><strong>20+ yrs</strong><span>Local experience</span></div>
+          <div class="hero-meta-item"><strong>5,000+</strong><span>Jobs completed</span></div>
+          <div class="hero-meta-item"><strong>24/7</strong><span>Emergency line</span></div>
         </div>
       </div>
 
@@ -864,9 +893,9 @@
   <section class="stats-strip">
     <div class="wrap">
       <div class="stats-grid">
-        <div class="stat"><strong><em>20</em>+</strong><span>Years on the trucks</span></div>
-        <div class="stat"><strong>5,142</strong><span>Jobs since 2005</span></div>
-        <div class="stat"><strong>4.9<em>★</em></strong><span>Google rating</span></div>
+        <div class="stat"><strong><em>20</em>+</strong><span>Years in business</span></div>
+        <div class="stat"><strong>5,000<em>+</em></strong><span>Jobs completed</span></div>
+        <div class="stat"><strong>4.9<em>★</em></strong><span>Average review</span></div>
         <div class="stat"><strong>$0</strong><span>For an estimate</span></div>
       </div>
     </div>
@@ -920,115 +949,47 @@
     </div>
   </section>
 
-  <!-- PULL QUOTE -->
-  <section class="pullquote">
-    <div class="wrap">
-      <p class="pullquote-text">"They told me my old furnace had <em>seven years left</em>. The other guys quoted me $9,400 to replace it. Air Management charged me $180 to clean it up. <em>That's the difference</em>."</p>
-      <div class="pullquote-attr">— Linda K. · Granite Bay · 3-yr customer</div>
-    </div>
-  </section>
-
-  <!-- SERVICE LOG -->
-  <!-- TEMPLATE: replace these example jobs with last week's real closed work orders -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-num">§ 02 — Service log</div>
-        <h2 class="section-title">What we fixed <em>this week.</em></h2>
-      </div>
-      <div class="log-table">
-        <div class="log-row head">
-          <div>Date / Time</div>
-          <div>Job</div>
-          <div>Location</div>
-          <div>Status</div>
-        </div>
-        <div class="log-row">
-          <div class="log-time">Mon · 8:42a</div>
-          <div class="log-job">Compressor swap, 4-ton Trane</div>
-          <div class="log-loc">Folsom, near Lake Natoma</div>
-          <div class="log-status">✓ Closed</div>
-        </div>
-        <div class="log-row">
-          <div class="log-time">Tue · 1:14p</div>
-          <div class="log-job">Frozen evaporator coil — refrigerant leak</div>
-          <div class="log-loc">Land Park</div>
-          <div class="log-status">✓ Closed</div>
-        </div>
-        <div class="log-row">
-          <div class="log-time">Tue · 6:38p</div>
-          <div class="log-job">Emergency: no AC, 102°F day</div>
-          <div class="log-loc">Elk Grove</div>
-          <div class="log-status">✓ Closed</div>
-        </div>
-        <div class="log-row">
-          <div class="log-time">Wed · 9:20a</div>
-          <div class="log-job">Annual maintenance — 2 systems</div>
-          <div class="log-loc">East Sac</div>
-          <div class="log-status">✓ Closed</div>
-        </div>
-        <div class="log-row">
-          <div class="log-time">Wed · 3:55p</div>
-          <div class="log-job">Furnace ignitor + flame sensor</div>
-          <div class="log-loc">Roseville</div>
-          <div class="log-status">✓ Closed</div>
-        </div>
-        <div class="log-row">
-          <div class="log-time">Thu · 10:11a</div>
-          <div class="log-job">New 3-ton condenser install</div>
-          <div class="log-loc">Natomas</div>
-          <div class="log-status">✓ Closed</div>
-        </div>
-        <div class="log-row">
-          <div class="log-time">Fri · 7:30a</div>
-          <div class="log-job">Commercial RTU diagnostic, restaurant</div>
-          <div class="log-loc">Midtown</div>
-          <div class="log-status">✓ Closed</div>
-        </div>
-      </div>
-      <p class="log-note">↑ Updated weekly · Names withheld for privacy</p>
-    </div>
-  </section>
+  <!-- REVIEWS — populated when customer reviews are provided -->
 
   <!-- WHY US -->
   <section class="section alt">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-num">§ 03 — Why us</div>
+        <div class="section-num">§ 02 — Why us</div>
         <h2 class="section-title">No script. <em>No theater.</em> Just the work.</h2>
       </div>
       <div class="why-grid">
         <div class="why-text">
-          <p>Most HVAC companies are sales operations with techs attached. <span class="display-em">We're techs first.</span> The phone gets answered by someone who's actually wrenched on units. The estimate gets written by the person who'll be doing the work.</p>
-          <p>If your system has five good years left, we'll tell you. <span class="display-em">If it doesn't,</span> we'll show you the failing part — not a sales binder.</p>
+          <p>You shouldn't need a translator to understand your HVAC bill. <span class="display-em">We're techs first.</span> If you call us, you're talking to someone who actually works on systems — not a sales rep reading from a script.</p>
+          <p>If your system has years of life left, we'll tell you. <span class="display-em">If it doesn't,</span> we'll show you exactly why — not pressure you with a binder of fear.</p>
         </div>
         <div class="why-list">
           <div class="why-item">
             <div class="why-item-num">/01</div>
             <div>
-              <h4>Same-day, when possible.</h4>
-              <p>Most repair calls in by 11am get done that day. We text when we're 30 minutes out. No 4-hour windows.</p>
+              <h4>Same-day service when we can.</h4>
+              <p>Most repair calls get handled the same day. We confirm a tight arrival window — no all-day waits, no "we'll be there sometime."</p>
             </div>
           </div>
           <div class="why-item">
             <div class="why-item-num">/02</div>
             <div>
-              <h4>Flat-rate pricing.</h4>
-              <p>The quote is the price. No "while we're in there." No surprise diagnostics fee on a $40 part.</p>
+              <h4>Honest, upfront pricing.</h4>
+              <p>The quote is the price. No "while we're in there" surprises, no inflated diagnostic fees on a small repair.</p>
             </div>
           </div>
           <div class="why-item">
             <div class="why-item-num">/03</div>
             <div>
-              <h4>We pick up after ourselves.</h4>
-              <p>Drop cloths, shoe covers, all old parts hauled away. The only sign we were there is that it's working.</p>
+              <h4>We clean up after ourselves.</h4>
+              <p>Drop cloths, shoe covers, old parts hauled away. The only sign we were there is that it's working.</p>
             </div>
           </div>
           <div class="why-item">
             <div class="why-item-num">/04</div>
             <div>
-              <h4>Real warranty.</h4>
-              <p>2-year labor on installs, 1-year on repairs. We come back free if something we touched fails. Period.</p>
+              <h4>Stand-behind-it guarantee.</h4>
+              <p>If something we installed or repaired fails because of our work, we come back and fix it. That's the deal.</p>
             </div>
           </div>
         </div>
@@ -1058,7 +1019,7 @@
             <div class="brand-icon" aria-hidden="true">❄</div>
             <div class="display">Air Management<em>.</em></div>
           </div>
-          <p>Family-owned HVAC for Sacramento homes and small businesses. Two trucks, no sales department, twenty-plus years on the same problems.</p>
+          <p>Family-owned heating &amp; cooling for Sacramento homes and small businesses. Honest work, no sales pressure, twenty-plus years of trade experience.</p>
         </div>
         <div class="footer-col">
           <h5>Get in touch</h5>
@@ -1077,7 +1038,7 @@
       </div>
       <div class="footer-bottom">
         <div>© 2026 Air Management Heating &amp; Cooling LLC</div>
-        <div>Licensed · Bonded · Insured</div>
+        <div>Licensed &amp; Insured</div>
       </div>
     </div>
   </footer>
